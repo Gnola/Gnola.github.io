@@ -1,0 +1,53 @@
+/* DESKTOP VIEW */
+
+body {
+  background-image: url(imgs/news.jpeg);
+  background-size: cover;
+  /* position: fixed; */
+  /* max-height: 100%;
+  max-width: 100%; */
+}
+
+.headlines {
+  border: 1px solid black;
+  display: block;
+  background: white;
+  max-width: 800px;
+  margin: auto;
+  height: 400px;
+}
+
+
+/* #modal {
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+
+
+
+/* MOBILE VIEW */
+@media (max-width: 600px) {
+  body {
+    background-image: url(imgs/news.jpeg);
+    background-size: cover;
+    position: sticky;
+  }
+  .headlines {
+    border: 1px solid white;
+    display: block;
+    background: black;
+    max-width: 400px;
+    margin: auto;
+    height: 200px;
+  }
+}
