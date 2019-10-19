@@ -64,6 +64,10 @@ const lastHeadline = 4;
         $headlineText.append(titleArray[currentHeadline])
       }
     }) // END OF PREVIOUS BUTTON FUNCTION
+    // WHEN CLOSE BUTTON IS CLICKED
+    $close.on('click', () => { // when you click the PREVIOUS button...
+      $modal.hide()
+    }) // END OF CLOSE BUTTON FUNCTION
   }, // END OF DATA
   (error) => {
     console.log('error');
