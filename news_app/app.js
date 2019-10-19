@@ -56,17 +56,12 @@ $("button[name='home-button']").on('click', (event) => {
     category = 'sports'
   } else if ($(event.currentTarget).hasClass('technology')) {
     console.log('Tech');
-    category = 'tech'
+    category = 'technology'
   }
-  // // MODAL that takes 5 top headlines, adds their image and headline to headline-container
-  // $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // append first articles url to image and set it as background
-  // $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
-  // $headlineDes.append(descriptionArray[currentHeadline]) // append first articles description to headlines
-  // $headlineDes.hide() // hide the description
   $headlineModal.show() // show the whole modal
-  console.log(category);
-  console.log(titleArray.length);
-  console.log(descriptionArray.length);
+  // console.log(category);
+  // console.log(titleArray.length);
+  // console.log(descriptionArray.length);
 
 // }) // END OF FIRST CLICK FUNCTION
 
@@ -82,9 +77,10 @@ $("button[name='home-button']").on('click', (event) => {
       urlToImageArray.push(data.articles[i].urlToImage) // push data urls to urlToImageArray
       descriptionArray.push(data.articles[i].description) // push data description to descriptionArray
     }
-    console.log(category);
-    console.log(titleArray.length);
-    console.log(descriptionArray.length);
+    // console.log(category);
+    // console.log(titleArray.length);
+    // console.log(descriptionArray.length);
+    // console.log(urlToImageArray);
     // MODAL that takes 5 top headlines, adds their image and headline to headline-container
     $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // append first articles url to image and set it as background
     $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
@@ -116,7 +112,6 @@ $("button[name='home-button']").on('click', (event) => {
       }
     }) // END OF NEXT BUTTON FUNCTION
 
-
     // WHEN PREVIOUS BUTTON IS CLICKED //
     $previous.on('click', () => { // when you click the PREVIOUS button...
       if (currentHeadline > 0) {
@@ -139,7 +134,10 @@ $("button[name='home-button']").on('click', (event) => {
     // WHEN CLOSE BUTTON IS CLICKED //
     $close.on('click', () => { // when you click the PREVIOUS button...
       $headlineModal.hide()
-
+      // $headlineImgs.empty()
+      titleArray = [];
+      urlToImageArray = [];
+      // descriptionArray = [];
     }) // END OF CLOSE BUTTON FUNCTION
 
     // WHEN YOU CLICK ON HEADLINE IMAGE //
@@ -236,3 +234,10 @@ $("button[name='home-button']").on('click', (event) => {
   // console.log(category);
   // console.log(titleArray.length);
   // console.log(descriptionArray.length);
+
+
+  // // MODAL that takes 5 top headlines, adds their image and headline to headline-container
+  // $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // append first articles url to image and set it as background
+  // $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
+  // $headlineDes.append(descriptionArray[currentHeadline]) // append first articles description to headlines
+  // $headlineDes.hide() // hide the description
