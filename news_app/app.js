@@ -2,14 +2,18 @@ $(() => {
 
 // VARIABLES //
   // jquery
+    // main site
 const $topNews = $('#top-news')
-const $modal = $('#modal')
+
+    // modal
+const $headlineModal = $('#headline-modal')
   const $headlineContatiner = $('.headline-container')
     const $previous = $('#previous-btn')
     const $headlineImgs = $('.headline-imgs')
     const $headlineText = $('.headline-text')
-  const $next = $('#next-btn')
-  const $close =  $('#close')
+    const $headlineDes = $('.headline-description')
+    const $next = $('#next-btn')
+    const $close =  $('#close')
 
 
 
@@ -17,6 +21,7 @@ const $modal = $('#modal')
   // js
 let titleArray = [];
 let urlToImageArray = [];
+let descriptionArry = [];
 let currentHeadline = 0;
 const lastHeadline = 4;
 
@@ -24,11 +29,11 @@ const lastHeadline = 4;
 
 
 // hide modal until CLICKED
-$modal.hide()
+$headlineModal.hide()
 
 // when you hit TOP NEWS button this will run
 $topNews.on('click', () => {
-  $modal.show()
+  $headlineModal.show()
 })
 // MODAL that takes 5 top headlines, adds their image and headline to headline-container
   const promise = $.ajax({
@@ -39,9 +44,12 @@ $topNews.on('click', () => {
     for (let i = 0; i < data.articles.length; i++) { // loop through data
       titleArray.push(data.articles[i].title) // push data titles to titleArray
       urlToImageArray.push(data.articles[i].urlToImage) // push data urls to urlToImageArray
+      descriptionArry.push(data.articles[i].description)
     } // then...
       $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // append first articles url to image and set it as background
       $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
+      $headlineDes.append(descriptionArry[currentHeadline])
+      $headlineDes.hide()
     // WHEN NEXT BUTTON IS CLICKED
     $next.on('click', () => { // when you click the NEXT button
       if (currentHeadline < lastHeadline) {
@@ -72,8 +80,13 @@ $topNews.on('click', () => {
     }) // END OF PREVIOUS BUTTON FUNCTION
     // WHEN CLOSE BUTTON IS CLICKED
     $close.on('click', () => { // when you click the PREVIOUS button...
-      $modal.hide()
+      $headlineModal.hide()
     }) // END OF CLOSE BUTTON FUNCTION
+    // WHEN YOU CLICK ON HEADLINE IMAGE
+    $headlineImgs.on('click', () => {
+      if ($headlineDes.hasClass('headline-description')) {
+        $headlineDes.toggle(); }
+    }) //END OF HEADLINE IMAGE BUTTON FUNCTION
   }, // END OF DATA
   (error) => {
     console.log('error');

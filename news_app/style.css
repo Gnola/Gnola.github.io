@@ -8,7 +8,7 @@ body {
   max-width: 100%; */
 }
 
-#modal {
+#headline-modal {
 	background-color: rgba(0, 0, 0, 0.6);
 	position: fixed;
 	top: 0;
@@ -44,6 +44,15 @@ body {
   }
 
   .headline-imgs {
+    border: 1px solid yellow;
+    width: 85%;
+    height: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .headline-description {
     border: 1px solid yellow;
     width: 85%;
     height: 100%;
