@@ -21,6 +21,13 @@ body {
   justify-content: center;
   align-items: center;
 }
+  .close-btn {
+    align-self: flex-start;
+    padding: 5px;
+    /* background-color: blue;
+    text-decoration: underline;
+    border-radius: 5px; */
+  }
 
   .headline-container {
     border: 1px solid black;
@@ -38,7 +45,9 @@ body {
 
   .headline-imgs {
     border: 1px solid yellow;
+    width: 85%;
     height: 100%;
+    background-repeat: no-repeat;
     display: flex;
     align-items: flex-end;
   }
