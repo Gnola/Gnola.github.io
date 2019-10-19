@@ -10,8 +10,9 @@ const $headlineModal = $('#headline-modal')
   const $headlineContatiner = $('.headline-container')
     const $previous = $('#previous-btn')
     const $headlineImgs = $('.headline-imgs')
-    const $headlineText = $('.headline-text')
-    const $headlineDes = $('.headline-description')
+      const $headline = $('.headline')
+        const $headlineText = $('.headline-text')
+      const $headlineDes = $('.headline-description')
     const $next = $('#next-btn')
     const $close =  $('#close')
 
@@ -21,7 +22,7 @@ const $headlineModal = $('#headline-modal')
   // js
 let titleArray = [];
 let urlToImageArray = [];
-let descriptionArry = [];
+let descriptionArray = [];
 let currentHeadline = 0;
 const lastHeadline = 4;
 
@@ -44,22 +45,26 @@ $topNews.on('click', () => {
     for (let i = 0; i < data.articles.length; i++) { // loop through data
       titleArray.push(data.articles[i].title) // push data titles to titleArray
       urlToImageArray.push(data.articles[i].urlToImage) // push data urls to urlToImageArray
-      descriptionArry.push(data.articles[i].description)
+      descriptionArray.push(data.articles[i].description)
     } // then...
       $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // append first articles url to image and set it as background
       $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
-      $headlineDes.append(descriptionArry[currentHeadline])
+      $headlineDes.append(descriptionArray[currentHeadline])
       $headlineDes.hide()
     // WHEN NEXT BUTTON IS CLICKED
     $next.on('click', () => { // when you click the NEXT button
       if (currentHeadline < lastHeadline) {
         currentHeadline++ // add to currentHeadline
         $headlineText.empty() // empty $headlineText
+        $headlineDes.empty()
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // add current article img
         $headlineText.append(titleArray[currentHeadline]) //  add current article title
+        $headlineDes.append(descriptionArray[currentHeadline])
+
       } else { // otherwise reset the current headline and start slideshow over
         currentHeadline = 0;
         $headlineText.empty()
+        $headlineDes.empty()
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')')
         $headlineText.append(titleArray[currentHeadline])
       }
@@ -69,11 +74,13 @@ $topNews.on('click', () => {
       if (currentHeadline > 0) {
         currentHeadline-- // add to currentHeadline
         $headlineText.empty() // empty $headlineText
+        $headlineDes.empty()
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // add current article img
         $headlineText.append(titleArray[currentHeadline]) //  add current article title
       } else { // otherwise reset the current headline and start slideshow over
         currentHeadline = lastHeadline;
         $headlineText.empty()
+        $headlineDes.empty()
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')')
         $headlineText.append(titleArray[currentHeadline])
       }
@@ -85,7 +92,10 @@ $topNews.on('click', () => {
     // WHEN YOU CLICK ON HEADLINE IMAGE
     $headlineImgs.on('click', () => {
       if ($headlineDes.hasClass('headline-description')) {
-        $headlineDes.toggle(); }
+        $headlineDes.toggle();
+        $headlineText.toggle();
+        $headline.toggle();
+      }
     }) //END OF HEADLINE IMAGE BUTTON FUNCTION
   }, // END OF DATA
   (error) => {
