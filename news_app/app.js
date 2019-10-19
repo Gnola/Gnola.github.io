@@ -2,6 +2,7 @@ $(() => {
 
 // VARIABLES //
   // jquery
+const $topNews = $('#top-news')
 const $modal = $('#modal')
   const $headlineContatiner = $('.headline-container')
     const $previous = $('#previous-btn')
@@ -23,7 +24,12 @@ const lastHeadline = 4;
 
 
 // hide modal until CLICKED
-// when you hit a certain button this will run
+$modal.hide()
+
+// when you hit TOP NEWS button this will run
+$topNews.on('click', () => {
+  $modal.show()
+})
 // MODAL that takes 5 top headlines, adds their image and headline to headline-container
   const promise = $.ajax({
     url: 'https://newsapi.org/v2/top-headlines?country=us&pageSize=5&apiKey=850ce7d10a3c44d6b8a3e6ac81eb0cb9'
