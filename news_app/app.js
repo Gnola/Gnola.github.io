@@ -59,7 +59,7 @@ const lastHeadline = 4;
     // console.log(titleArray[currentHeadline]);
     // console.log(urlToImageArray);
     // console.log(urlToImageArray[currentHeadline]);
-    $next.on('click', () => { // when you click the next button
+    $next.on('click', () => { // when you click the NEXT button
       if (currentHeadline < lastHeadline) {
         currentHeadline++ // add to currentHeadline
         $headlineText.empty() // empty $headlineText
@@ -67,6 +67,19 @@ const lastHeadline = 4;
         $headlineText.append(titleArray[currentHeadline]) //  add current article title
       } else { // otherwise reset the current headline and start slideshow over
         currentHeadline = 0;
+        $headlineText.empty()
+        $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')')
+        $headlineText.append(titleArray[currentHeadline])
+      }
+    }) // END OF NEXT BUTTON FUNCTION
+    $previous.on('click', () => { // when you click the PREVIOUS button...
+      if (currentHeadline > 0) {
+        currentHeadline-- // add to currentHeadline
+        $headlineText.empty() // empty $headlineText
+        $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // add current article img
+        $headlineText.append(titleArray[currentHeadline]) //  add current article title
+      } else { // otherwise reset the current headline and start slideshow over
+        currentHeadline = lastHeadline;
         $headlineText.empty()
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')')
         $headlineText.append(titleArray[currentHeadline])
