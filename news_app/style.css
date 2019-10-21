@@ -3,13 +3,57 @@
 body {
   background-image: url(imgs/news.jpeg);
   background-size: cover;
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+  margin: auto; */
   /* position: fixed; */
   /* max-height: 100%;
   max-width: 100%; */
 }
 
+h1 {
+  color: #0747b0;
+}
+
+.main-site {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+  align-items: center;
+  align-content: space-between;
+  margin: auto;
+}
+
+.home-buttons {
+  border: 1px solid gold;
+  width:300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+}
+
+button[name="home-button"] {
+  /* background-color: blue; */
+  border: 1px solid blue;
+  border-radius: 3px;
+  padding: 10px 16px;
+  font-weight: bold;
+  width: 200px;
+  text-align: center;
+  z-index: 1;
+}
+
 #headline-modal {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.7);
 	position: fixed;
 	top: 0;
 	left: 0;
