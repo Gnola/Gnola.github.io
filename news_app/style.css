@@ -34,11 +34,15 @@ h1 {
 
 .home-buttons {
   border: 1px solid gold;
+  height: 125px;
+  color: #0747b0;
+  background-color: whitesmoke;
   width:300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px auto;
+  border-radius: 3px;
 }
 
 button[name="home-button"] {
@@ -50,11 +54,13 @@ button[name="home-button"] {
   width: 200px;
   text-align: center;
   z-index: 1;
+  color: white;
+  background-color: #0747b0;
 }
 
 /* Modal */
 #headline-modal {
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.8);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -84,7 +90,7 @@ button[name="home-button"] {
   .headline-container {
     border: 1px solid black;
     display: block;
-    background: white;
+    /* background: white; */
     width: 800px;
     max-width: 800px;
     margin: auto;
@@ -97,8 +103,8 @@ button[name="home-button"] {
 
   .headline-imgs {
     border: 1px solid yellow;
-    width: 85%;
-    height: 90%;
+    width: 90%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -140,10 +146,11 @@ button[name="home-button"] {
   }
 
   button[name="modal-button"] {
-    background: yellow;
+    background: #0747b0;
     font-size: 20px;
     padding: 8px;
     border-radius: 10px;
+    color: white;
   }
 
   .modal-button {
