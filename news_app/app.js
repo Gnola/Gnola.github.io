@@ -1,11 +1,11 @@
+// START //
 $(() => {
 
 // VARIABLES //
-  // jquery
-    // main site
+// JQUERY - MAIN SITE //
 const $topNews = $('.top-news')
 
-    // modal
+// JQUERY - MODAL //
 const $headlineModal = $('#headline-modal')
   const $headlineContatiner = $('.headline-container')
     const $previous = $('#previous-btn')
@@ -16,8 +16,7 @@ const $headlineModal = $('#headline-modal')
     const $next = $('#next-btn')
     const $close =  $('#close')
 
-
-  // js
+  // JS //
 let titleArray = [];
 let urlToImageArray = [];
 let descriptionArray = [];
@@ -29,15 +28,15 @@ let category = '';
 
 
 
-// hide modal until CLICKED
+
+// ON LOAD //
+// hide modal until clicked
 $headlineModal.hide()
 
 
-
-// THEN WHENEVER YOU CLICK A BUTTON
+// WHENEVER YOU CLICK A MAIN SITE BUTTON //
 $("button[name='home-button']").on('click', (event) => {
   if ($(event.currentTarget).hasClass('top-news')) {
-    console.log('General');
     category = 'general'
   } else if ($(event.currentTarget).hasClass('business')) {
     console.log('Business');
@@ -58,20 +57,26 @@ $("button[name='home-button']").on('click', (event) => {
     console.log('Tech');
     category = 'technology'
   }
-  $headlineModal.show() // show the whole modal
+  $headlineModal.show() // show the modal
   // console.log(category);
   // console.log(titleArray.length);
   // console.log(descriptionArray.length);
 
-// }) // END OF FIRST CLICK FUNCTION
+  // }) // END OF FIRST CLICK FUNCTION
 
-  const promise = $.ajax({
+   /////////////////////////////////////////////////////
+  // Figure out how to deal with null or broken data //
+ /////////////////////////////////////////////////////
+
+  // ONCE BUTTON IS CLICKED //
+  const promise = $.ajax({ // AJAX
     url: 'https://newsapi.org/v2/top-headlines?country=us&category=' + category + '&pageSize=5&apiKey=850ce7d10a3c44d6b8a3e6ac81eb0cb9'
   }).then( // START OF THEN //
   (data) => {
     // WHEN PAGE LOADS...
     $headlineText.empty() // empty $headlineText
     $headlineDes.empty() // empty $headlineDes
+    // then run this for loop and push items into arrays
     for (let i = 0; i < data.articles.length; i++) { // loop through data
       titleArray.push(data.articles[i].title) // push data titles to titleArray
       urlToImageArray.push(data.articles[i].urlToImage) // push data urls to urlToImageArray
@@ -82,11 +87,11 @@ $("button[name='home-button']").on('click', (event) => {
     // console.log(descriptionArray.length);
     // console.log(urlToImageArray);
     // MODAL that takes 5 top headlines, adds their image and headline to headline-container
+    // then take elements from array and append them to the modal
     $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // append first articles url to image and set it as background
     $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
     $headlineDes.append(descriptionArray[currentHeadline]) // append first articles description to headlines
-    $headlineDes.hide() // hide the description
-    // $headlineModal.show() // show the whole modal
+    $headlineDes.hide() // hide the description on load
 
     // WHEN NEXT BUTTON IS CLICKED //
     $next.on('click', () => { // when you click the NEXT button
