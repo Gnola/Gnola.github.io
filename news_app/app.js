@@ -1,7 +1,15 @@
+//////////////////////////////////////////////////////
+// Figure out how to deal with null or broken data //
+// ADD READ MORE LINK                             //
+///////////////////////////////////////////////////
+
+
+
+
+
 // START //
 $(() => {
 
-// VARIABLES //
 // JQUERY - MAIN SITE //
 const $topNews = $('.top-news')
 
@@ -16,82 +24,80 @@ const $headlineModal = $('#headline-modal')
     const $next = $('#next-btn')
     const $close =  $('#close')
 
-  // JS //
+// JS //
 let titleArray = [];
 let urlToImageArray = [];
 let descriptionArray = [];
 
-let currentHeadline = 0;
-const lastHeadline = 4;
+let currentHeadline = 0; // parameters for carousel
+const lastHeadline = 4; // parameters for carousel
 
-let category = '';
-
-
+let category = ''; // search for category depending on button clicked
 
 
-// ON LOAD //
-// hide modal until clicked
-$headlineModal.hide()
 
 
-// WHENEVER YOU CLICK A MAIN SITE BUTTON //
-$("button[name='home-button']").on('click', (event) => {
+// ON PAGE LOAD //
+
+$headlineModal.hide() // hide modal until button is clicked
+
+// THEN WHENEVER YOU CLICK A MAIN SITE BUTTON //
+  // depending on the button you click it will change the category searched for in the API
+$("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK FUNCTION
   if ($(event.currentTarget).hasClass('top-news')) {
+    // console.log('general');
     category = 'general'
   } else if ($(event.currentTarget).hasClass('business')) {
-    console.log('Business');
+    // console.log('Business');
     category = 'business'
   }  else if ($(event.currentTarget).hasClass('entertainment')) {
-    console.log('Entertainment');
+    // console.log('Entertainment');
     category = 'entertainment'
   } else if ($(event.currentTarget).hasClass('health')) {
-    console.log('Health');
+    // console.log('Health');
     category = 'health'
   } else if ($(event.currentTarget).hasClass('science')) {
-    console.log('Science');
+    // console.log('Science');
     category = 'science'
   } else if ($(event.currentTarget).hasClass('sports')) {
-    console.log('Sports');
+    // console.log('Sports');
     category = 'sports'
   } else if ($(event.currentTarget).hasClass('technology')) {
-    console.log('Tech');
+    // console.log('Tech');
     category = 'technology'
   }
-  $headlineModal.show() // show the modal
-  // console.log(category);
-  // console.log(titleArray.length);
-  // console.log(descriptionArray.length);
 
-  // }) // END OF FIRST CLICK FUNCTION
-
-   /////////////////////////////////////////////////////
-  // Figure out how to deal with null or broken data //
- /////////////////////////////////////////////////////
+  // // OG SHOW MODAL
+  // $headlineModal.show()
+  // }) // OG END OF FIRST CLICK FUNCTION
 
   // ONCE BUTTON IS CLICKED //
   const promise = $.ajax({ // AJAX
     url: 'https://newsapi.org/v2/top-headlines?country=us&category=' + category + '&pageSize=5&apiKey=850ce7d10a3c44d6b8a3e6ac81eb0cb9'
   }).then( // START OF THEN //
   (data) => {
-    // WHEN PAGE LOADS...
+    // AND THE PAGE LOADS...
     $headlineText.empty() // empty $headlineText
     $headlineDes.empty() // empty $headlineDes
-    // then run this for loop and push items into arrays
-    for (let i = 0; i < data.articles.length; i++) { // loop through data
+
+    for (let i = 0; i < data.articles.length; i++) { // run this for loop that loops through the data and pushes items into arrays
       titleArray.push(data.articles[i].title) // push data titles to titleArray
       urlToImageArray.push(data.articles[i].urlToImage) // push data urls to urlToImageArray
       descriptionArray.push(data.articles[i].description) // push data description to descriptionArray
     }
-    // console.log(category);
-    // console.log(titleArray.length);
-    // console.log(descriptionArray.length);
-    // console.log(urlToImageArray);
-    // MODAL that takes 5 top headlines, adds their image and headline to headline-container
     // then take elements from array and append them to the modal
-    $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // append first articles url to image and set it as background
+    $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // set the headline img background to the first articles url
     $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
     $headlineDes.append(descriptionArray[currentHeadline]) // append first articles description to headlines
-    $headlineDes.hide() // hide the description on load
+    $headlineText.show() // show the headline text
+    $headlineDes.hide() // hide the description
+    // then show the modal
+    $headlineModal.show()
+  }, // END OF DATA - START OF ERROR //
+  (error) => {
+    console.log('error');
+  }) // END OF THEN AND ERROR //
+}) // END OF FIRST CLICK FUNCTION //
 
     // WHEN NEXT BUTTON IS CLICKED //
     $next.on('click', () => { // when you click the NEXT button
@@ -99,12 +105,7 @@ $("button[name='home-button']").on('click', (event) => {
         currentHeadline++ // add to currentHeadline
         $headlineText.empty() // empty $headlineText
         $headlineDes.empty() // empty $headlineDes
-
-        // FIGURE OUT NULL IMG URL BUG //
-        // if (urlToImageArray[currentHeadline] = 'null') {
-        //   console.log('hi'); // add current article img
-        // }
-        $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // add current article img
+        $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // add current article img url
         $headlineText.append(titleArray[currentHeadline]) //  add current article title
         $headlineDes.append(descriptionArray[currentHeadline]) // add current article description
       } else { // otherwise reset the current headline and start slideshow over
@@ -120,12 +121,12 @@ $("button[name='home-button']").on('click', (event) => {
     // WHEN PREVIOUS BUTTON IS CLICKED //
     $previous.on('click', () => { // when you click the PREVIOUS button...
       if (currentHeadline > 0) {
-        currentHeadline-- // add to currentHeadline
+        currentHeadline-- // take away from currentHeadline
         $headlineText.empty() // empty $headlineText
-        $headlineDes.empty()
+        $headlineDes.empty() // empty $headlineDes
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // add current article img
         $headlineText.append(titleArray[currentHeadline]) //  add current article title
-        $headlineDes.append(descriptionArray[currentHeadline])
+        $headlineDes.append(descriptionArray[currentHeadline]) // add current article description
       } else { // otherwise reset the current headline and start slideshow over
         currentHeadline = lastHeadline;
         $headlineText.empty()
@@ -137,29 +138,21 @@ $("button[name='home-button']").on('click', (event) => {
     }) // END OF PREVIOUS BUTTON FUNCTION
 
     // WHEN CLOSE BUTTON IS CLICKED //
-    $close.on('click', () => { // when you click the PREVIOUS button...
-      $headlineModal.hide()
-      // $headlineImgs.empty()
+    $close.on('click', () => { // when you click the CLOSE button...
+      $headlineModal.hide(); // hide the whole modal
+      // and empty the arrays
       titleArray = [];
       urlToImageArray = [];
-      // descriptionArray = [];
+      descriptionArray = [];
     }) // END OF CLOSE BUTTON FUNCTION
 
     // WHEN YOU CLICK ON HEADLINE IMAGE //
     $headlineImgs.on('click', () => {
-      if ($headlineDes.hasClass('headline-description')) {
-        $headlineDes.toggle(); // toggle the description
-        $headlineText.toggle(); // toggle the headline text
-        $headline.toggle(); // toggel the headline div
-      }
+      $headlineDes.toggle(); // toggle the description on
+      $headlineText.toggle(); // toggle the headline text off
+      $headline.toggle(); // toggel the headline div off
     }) //END OF HEADLINE IMAGE BUTTON FUNCTION
-  }, // END OF DATA
-  (error) => {
-    console.log('error');
-  }
-)
 
-}) // END OF FIRST CLICK FUNCTION
 
 
 
@@ -168,6 +161,18 @@ $("button[name='home-button']").on('click', (event) => {
 
 
 
+
+
+
+
+
+  ////////////////////
+ // CODE GRAVEYARD //
+////////////////////
+
+// console.log(category);
+// console.log(titleArray.length);
+// console.log(descriptionArray.length);
 
 // ORIGINAL AJAX
 //   const promise = $.ajax({ // takes 5 top headlines, adds their image and headline to headline-container
@@ -246,3 +251,16 @@ $("button[name='home-button']").on('click', (event) => {
   // $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
   // $headlineDes.append(descriptionArray[currentHeadline]) // append first articles description to headlines
   // $headlineDes.hide() // hide the description
+
+  // older close funtion set up
+  // $headlineContatiner.trigger('reset');
+  // $headline.show();
+  // $headlineDes.show();
+  // $headlineImgs.empty()
+
+  // older $headlineImgs click function
+  // if ($headlineDes.hasClass('headline-description')) {
+  //   $headlineDes.toggle(); // toggle the description
+  //   $headlineText.toggle(); // toggle the headline text
+  //   $headline.toggle(); // toggel the headline div
+  // }
