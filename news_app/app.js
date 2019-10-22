@@ -60,10 +60,6 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
     category = 'technology'
   }
 
-  // // OG SHOW MODAL
-  // $headlineModal.show()
-  // }) // OG END OF FIRST CLICK FUNCTION
-
   // ONCE BUTTON IS CLICKED //
   const promise = $.ajax({ // AJAX
     url: 'https://newsapi.org/v2/top-headlines?country=us&category=' + category + '&pageSize=5&apiKey=850ce7d10a3c44d6b8a3e6ac81eb0cb9'
@@ -79,15 +75,6 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
       descriptionArray.push(data.articles[i].description) // push data description to descriptionArray
       urlToArticleArray.push(data.articles[i].url)
     }
-
-    // if (urlToImageArray[currentHeadline] == 'null') {
-    //   console.log('error');
-    //   data.articles[i].urlToImage = 'null'
-    //   console.log(data.articles[i].urlToImage);
-    //   $headlineImgs.css('background','url(imgs/broken.png)')
-    //   console.log('check');
-    // }
-
     // then take elements from array and append them to the modal
     $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // set the headline img background to the first articles url
     $headlineImgs.css('background-position', 'center') // center the image
@@ -170,15 +157,12 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
     $headlineImgs.on('click', () => {
       $headline.toggle(); // toggle the description on
       $headlineDes.toggle(); // toggel the headline div off
-      // $headlineText.slideToggle(); // toggle the headline text off
-    }) //END OF HEADLINE IMAGE BUTTON FUNCTION
+    }) // END OF HEADLINE IMAGE BUTTON FUNCTION
 
+    // WHEN YOU CLICK ON READ MORE LINK //
     $('a').on('click', () => {
       window.open(urlToArticleArray[currentHeadline])
-    })
-
-
-
+    }) // END OF LINK CLICK FUNCTION //
 
 }) // END //
 
@@ -287,3 +271,17 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
   //   $headlineText.toggle(); // toggle the headline text
   //   $headline.toggle(); // toggel the headline div
   // }
+
+  // Trying to fix null problem
+  // if (urlToImageArray[currentHeadline] == 'null') {
+  //   console.log('error');
+  //   data.articles[i].urlToImage = 'null'
+  //   console.log(data.articles[i].urlToImage);
+  //   $headlineImgs.css('background','url(imgs/broken.png)')
+  //   console.log('check');
+  // }
+
+
+  // // OG SHOW MODAL
+  // $headlineModal.show()
+  // }) // OG END OF FIRST CLICK FUNCTION
