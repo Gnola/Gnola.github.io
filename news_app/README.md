@@ -22,14 +22,17 @@ When the page loads you are presented with 7 options of articles to view based o
 
 ## Code Snippits
 Variables Utilized:
+
 ![alt text](https://github.com/Gnola/Gnola.github.io/blob/master/news_app/imgs/Variables.png "Variables Utilized")
 
 
 First Load and Click Function:
+
 ![alt text](https://github.com/Gnola/Gnola.github.io/blob/master/news_app/imgs/Load_and_click_functions.png "Load and Click Functions")
 
 
 AJAX:
+
 ![alt text](https://github.com/Gnola/Gnola.github.io/blob/master/news_app/imgs/AJAX.png "AJAX")
 
 
