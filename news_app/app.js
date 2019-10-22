@@ -171,7 +171,6 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
       $headline.toggle(); // toggle the description on
       $headlineDes.toggle(); // toggel the headline div off
       // $headlineText.slideToggle(); // toggle the headline text off
-
     }) //END OF HEADLINE IMAGE BUTTON FUNCTION
 
     $('a').on('click', () => {

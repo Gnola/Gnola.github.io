@@ -129,10 +129,13 @@ button[name="home-button"]:hover {
     } */
     a {
       color: #538ae4;
+      align-self: flex-end;
+      margin-right: 8px;
+      margin-bottom: 3px;
     }
 
   .headline-description {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
     font-size: 20px;
@@ -168,6 +171,15 @@ button[name="home-button"]:hover {
     border: 1px solid red;
     color: white;
     padding: 5px;
+  }
+
+  #close {
+    color: rgba(83, 138, 228, .7);
+    text-decoration: underline;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: rgba(83, 138, 228, 0);
+    border-color: rgba(83, 138, 228, 0);
   }
 
   #next-btn {
