@@ -20,6 +20,7 @@ const $headlineModal = $('#headline-modal')
     const $headlineImgs = $('.headline-imgs')
       const $headline = $('.headline')
         const $headlineText = $('.headline-text')
+        const $headlineUrl = $('.headline-url')
       const $headlineDes = $('.headline-description')
     const $next = $('#next-btn')
     const $close =  $('#close')
@@ -28,6 +29,7 @@ const $headlineModal = $('#headline-modal')
 let titleArray = [];
 let urlToImageArray = [];
 let descriptionArray = [];
+let urlToArticleArray = [];
 
 let currentHeadline = 0; // parameters for carousel
 const lastHeadline = 4; // parameters for carousel
@@ -84,11 +86,16 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
       titleArray.push(data.articles[i].title) // push data titles to titleArray
       urlToImageArray.push(data.articles[i].urlToImage) // push data urls to urlToImageArray
       descriptionArray.push(data.articles[i].description) // push data description to descriptionArray
+      urlToArticleArray.push(data.articles[i].url)
     }
     // then take elements from array and append them to the modal
     $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // set the headline img background to the first articles url
+    $headlineImgs.css('background-position', 'center') // center the image
+    $headlineImgs.css('background-size', 'cover') // set it as a cover
+    $headlineImgs.css('background-repeat', 'no-repeat') // dont repeat
     $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
     $headlineDes.append(descriptionArray[currentHeadline]) // append first articles description to headlines
+    $headline.append(`<a href='${urlToArticleArray[currentHeadline]}>Read More</a>`)
     $headlineText.show() // show the headline text
     $headlineDes.hide() // hide the description
     // then show the modal
@@ -116,6 +123,9 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
         $headlineText.empty()
         $headlineDes.empty()
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')')
+        $headlineImgs.css('background-position', 'center') // center the image
+        $headlineImgs.css('background-size', 'cover') // set it as a cover
+        $headlineImgs.css('background-repeat', 'no-repeat') // dont repeat
         $headlineText.append(titleArray[currentHeadline])
         $headlineDes.append(descriptionArray[currentHeadline])
       }
@@ -128,6 +138,9 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
         $headlineText.empty() // empty $headlineText
         $headlineDes.empty() // empty $headlineDes
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // add current article img
+        $headlineImgs.css('background-position', 'center') // center the image
+        $headlineImgs.css('background-size', 'cover') // set it as a cover
+        $headlineImgs.css('background-repeat', 'no-repeat') // dont repeat
         $headlineText.append(titleArray[currentHeadline]) //  add current article title
         $headlineDes.append(descriptionArray[currentHeadline]) // add current article description
       } else { // otherwise reset the current headline and start slideshow over
@@ -135,6 +148,9 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
         $headlineText.empty()
         $headlineDes.empty()
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')')
+        $headlineImgs.css('background-position', 'center') // center the image
+        $headlineImgs.css('background-size', 'cover') // set it as a cover
+        $headlineImgs.css('background-repeat', 'no-repeat') // dont repeat
         $headlineText.append(titleArray[currentHeadline])
         $headlineDes.append(descriptionArray[currentHeadline])
       }
@@ -144,20 +160,23 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
     $close.on('click', (event) => { // when you click the CLOSE button...
       $headlineModal.hide(); // hide the whole modal
       // and empty the arrays
-      console.log(event.target);
-      console.log(event.currentTarget);
       titleArray = [];
       urlToImageArray = [];
       descriptionArray = [];
+      urlToArticleArray = [];
     }) // END OF CLOSE BUTTON FUNCTION
 
     // WHEN YOU CLICK ON HEADLINE IMAGE //
     $headlineImgs.on('click', () => {
-      $headlineDes.toggle(); // toggle the description on
-      $headlineText.toggle(); // toggle the headline text off
-      $headline.toggle(); // toggel the headline div off
+      $headline.delay(300).toggle(); // toggel the headline div off
+      $headlineDes.slideToggle(); // toggle the description on
+      // $headlineText.slideToggle(); // toggle the headline text off
+
     }) //END OF HEADLINE IMAGE BUTTON FUNCTION
 
+    $('a').on('click', () => {
+      window.open(urlToArticleArray[currentHeadline])
+    })
 
 
 

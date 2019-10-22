@@ -103,8 +103,6 @@ button[name="home-button"] {
     height: 100%;
     display: flex;
     align-items: flex-end;
-    background-position: center;
-    object-fit: scale-down;
     /* background-repeat: no-repeat;
     background-size: contain;
     background-position: center; */
@@ -117,7 +115,10 @@ button[name="home-button"] {
     width: 100%;
     height: 80px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    /* flex-wrap: wrap;
+    justify-content: flex-end; */
   }
 
   .headline-description {
@@ -143,6 +144,12 @@ button[name="home-button"] {
     text-align: center;
     margin: auto;
     padding: 0 5px;
+  }
+
+  .headline-url {
+    color: white;
+    text-decoration: underline;
+
   }
 
   button[name="modal-button"] {
