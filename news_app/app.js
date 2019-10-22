@@ -168,8 +168,8 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
 
     // WHEN YOU CLICK ON HEADLINE IMAGE //
     $headlineImgs.on('click', () => {
-      $headline.delay(300).toggle(); // toggel the headline div off
-      $headlineDes.slideToggle(); // toggle the description on
+      $headline.slideToggle(); // toggle the description on
+      $headlineDes.delay(1000).slideToggle(); // toggel the headline div off
       // $headlineText.slideToggle(); // toggle the headline text off
 
     }) //END OF HEADLINE IMAGE BUTTON FUNCTION
