@@ -3,18 +3,14 @@
 body {
   background-image: url(imgs/news.jpeg);
   background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
-  /* display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  align-content: space-between;
-  margin: auto; */
-  /* position: fixed; */
-  /* max-height: 100%;
-  max-width: 100%; */
+}
+
+.header {
+  background-color: whitesmoke;
+  width: 550px;
+  margin: auto;
 }
 
 h1 {
@@ -105,11 +101,15 @@ button[name="home-button"] {
     border: 1px solid yellow;
     width: 90%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     align-items: flex-end;
+    background-position: center;
+    object-fit: scale-down;
+    /* background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center; */
   }
+
 
   .headline {
     border: 1px solid blue;

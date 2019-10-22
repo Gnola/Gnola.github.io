@@ -106,6 +106,9 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
         $headlineText.empty() // empty $headlineText
         $headlineDes.empty() // empty $headlineDes
         $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // add current article img url
+        $headlineImgs.css('background-position', 'center') // center the image
+        $headlineImgs.css('background-size', 'cover') // set it as a cover
+        $headlineImgs.css('background-repeat', 'no-repeat') // dont repeat
         $headlineText.append(titleArray[currentHeadline]) //  add current article title
         $headlineDes.append(descriptionArray[currentHeadline]) // add current article description
       } else { // otherwise reset the current headline and start slideshow over
@@ -138,9 +141,11 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
     }) // END OF PREVIOUS BUTTON FUNCTION
 
     // WHEN CLOSE BUTTON IS CLICKED //
-    $close.on('click', () => { // when you click the CLOSE button...
+    $close.on('click', (event) => { // when you click the CLOSE button...
       $headlineModal.hide(); // hide the whole modal
       // and empty the arrays
+      console.log(event.target);
+      console.log(event.currentTarget);
       titleArray = [];
       urlToImageArray = [];
       descriptionArray = [];
