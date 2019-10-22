@@ -8,17 +8,23 @@ body {
 }
 
 .header {
-  background-color: whitesmoke;
+  background-color: rgba(245, 245, 245, .8);
   max-width: 550px;
   margin: auto;
 }
+/* .home-buttons:hover {
+  background-color: grey;
+} */
 
 h1 {
   color: #0747b0;
+  font-family: 'DM Serif Text', serif;
+  z-index: 1;
 }
 
 h2 {
   font-size: 1.75em;
+  font-family: 'DM Serif Text', serif;
 }
 
 .main-site {
@@ -32,7 +38,7 @@ h2 {
   margin: auto;
 }
 
-.home-buttons {
+/* .home-buttons {
   background-color: whitesmoke;
   box-shadow: 5px 5px 5px black;
   height: 150px;
@@ -43,19 +49,32 @@ h2 {
   align-items: center;
   margin: 20px auto;
   border-radius: 4px;
-}
+} */
 
 button[name="home-button"] {
+  /* background-color: whitesmoke; */
+  box-shadow: 5px 5px 5px black;
+  height: 150px;
+  /* color: #0747b0; */
+  width:350px;
+  /* display: flex;
+  flex-direction: column; */
+  align-items: center;
+  margin: 20px auto;
+  border-radius: 4px;
+
   border: 2px solid #0747b0;
-  border-radius: .25rem;
+  /* border-radius: .25rem; */
   padding: 15px 20px;
   font-weight: bold;
-  width: 205px;
+  /* width: 205px; */
   text-align: center;
   z-index: 1;
   color: white;
+  font-size: 25px;
   background-color: #0747b0;
   cursor: pointer;
+  font-family: 'DM Serif Text', serif;
 }
 
 button[name="home-button"]:hover {
@@ -204,6 +223,9 @@ button[name="home-button"]:hover {
   body {
     background-image: url(imgs/news.jpeg);
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
   }
   .headline-container {
     border: 1px solid white;
@@ -221,11 +243,15 @@ button[name="home-button"]:hover {
   }
   #close {
     color: white;
+    font-size: 10px;
   }
   .headline-text {
     font-size: 12px;
   }
   a {
     font-size: 10px;
+  }
+  button[name="modal-button"] {
+    font-size: 15px;
   }
 }
