@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-  background-color: rgba(245, 245, 245, .8);
+  background-color: rgba(245, 245, 245, .9);
   max-width: 550px;
   margin: auto;
 }
@@ -125,8 +125,8 @@ button[name="home-button"]:hover {
   .headline {
     background: rgba(0, 0, 0, 0.9);
     width: 100%;
-    height: 20%;
-    max-height: 20%;
+    /* height: 20%;
+    max-height: 20%; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -150,7 +150,7 @@ button[name="home-button"]:hover {
       color: #538ae4;
       align-self: flex-end;
       margin-right: 8px;
-      margin-bottom: 3px;
+      margin-bottom: 5px;
     }
 
   .headline-description {
@@ -234,7 +234,7 @@ button[name="home-button"]:hover {
     max-height: 90%;
     margin: auto;
     margin-top: auto;
-    /* height: 200px; */
+    height: 200px;
   }
   .headline-imgs {
     background-size: cover;
@@ -244,6 +244,11 @@ button[name="home-button"]:hover {
   #close {
     color: white;
     font-size: 10px;
+    padding: 1px;
+  }
+  #next-btn {
+    height: 71%;
+    padding: 0;
   }
   .headline-text {
     font-size: 12px;
