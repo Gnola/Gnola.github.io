@@ -9,7 +9,7 @@ body {
 
 .header {
   background-color: whitesmoke;
-  width: 550px;
+  max-width: 550px;
   margin: auto;
 }
 
@@ -101,6 +101,7 @@ button[name="home-button"] {
     border: 1px solid yellow;
     width: 90%;
     height: 100%;
+    /* background-color: black; */
     display: flex;
     align-items: flex-end;
     /* background-repeat: no-repeat;

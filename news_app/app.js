@@ -88,6 +88,15 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
       descriptionArray.push(data.articles[i].description) // push data description to descriptionArray
       urlToArticleArray.push(data.articles[i].url)
     }
+
+    // if (urlToImageArray[currentHeadline] == 'null') {
+    //   console.log('error');
+    //   data.articles[i].urlToImage = 'null'
+    //   console.log(data.articles[i].urlToImage);
+    //   $headlineImgs.css('background','url(imgs/broken.png)')
+    //   console.log('check');
+    // }
+
     // then take elements from array and append them to the modal
     $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // set the headline img background to the first articles url
     $headlineImgs.css('background-position', 'center') // center the image
@@ -168,8 +177,8 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
 
     // WHEN YOU CLICK ON HEADLINE IMAGE //
     $headlineImgs.on('click', () => {
-      $headline.slideToggle(); // toggle the description on
-      $headlineDes.delay(1000).slideToggle(); // toggel the headline div off
+      $headline.toggle(); // toggle the description on
+      $headlineDes.toggle(); // toggel the headline div off
       // $headlineText.slideToggle(); // toggle the headline text off
 
     }) //END OF HEADLINE IMAGE BUTTON FUNCTION
