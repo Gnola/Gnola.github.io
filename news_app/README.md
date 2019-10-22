@@ -6,10 +6,15 @@ This news app allows you to see the current top news headlines in almost real ti
 
 
 This app was build using:
+
 HTML
+
 CSS
+
 Javascript
+
 jquery
+
 API
 
 ## Navigating the app
