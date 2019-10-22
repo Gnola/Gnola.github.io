@@ -151,16 +151,18 @@ button[name="home-button"]:hover {
   }
 
   button[name="modal-button"] {
-    background: #0747b0;
-    font-size: 20px;
-    padding: 8px;
+    color: #538ae4;
+    font-size: 25px;
+    /* padding: 8px; */
     border-radius: 10px;
-    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
   }
 
   .modal-button {
     padding: 8px;
   }
+
 
 
 
