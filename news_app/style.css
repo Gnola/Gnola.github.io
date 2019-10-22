@@ -250,6 +250,9 @@ button[name="home-button"]:hover {
     height: 71%;
     padding: 0;
   }
+  .modal-button {
+    font-size: 18px;
+  }
   .headline-text {
     font-size: 12px;
   }
