@@ -83,8 +83,6 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
       }
       urlToArticleArray.push(data.articles[i].url)
     }
-    console.log(descriptionArray);
-    console.log(urlToImageArray);
     // then take elements from array and append them to the modal
     $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // set the headline img background to the first articles url
     $headlineImgs.css('background-position', 'center') // center the image
