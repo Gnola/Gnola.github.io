@@ -200,6 +200,7 @@ button[name="home-button"]:hover {
     border-radius: 5px;
     background-color: rgba(83, 138, 228, 0);
     border-color: rgba(83, 138, 228, 0);
+    cursor: pointer;
   }
 
   #next-btn {

@@ -81,6 +81,7 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
     $headlineImgs.css('background-size', 'cover') // set it as a cover
     $headlineImgs.css('background-repeat', 'no-repeat') // dont repeat
     $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
+
     $headlineDes.append(descriptionArray[currentHeadline]) // append first articles description to headlines
     $headline.append(`<a href='${urlToArticleArray[currentHeadline]}>Read More</a>`)
     $headlineText.show() // show the headline text
