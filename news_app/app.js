@@ -71,10 +71,20 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
 
     for (let i = 0; i < data.articles.length; i++) { // run this for loop that loops through the data and pushes items into arrays
       titleArray.push(data.articles[i].title) // push data titles to titleArray
-      urlToImageArray.push(data.articles[i].urlToImage) // push data urls to urlToImageArray
-      descriptionArray.push(data.articles[i].description) // push data description to descriptionArray
+      if (data.articles[i].urlToImage == null) {
+        urlToImageArray.push('imgs/broken.png') // default picture incase the article doesnt have one
+      } else {
+        urlToImageArray.push(data.articles[i].urlToImage) // push data urls to urlToImageArray
+      }
+      if (data.articles[i].description == null) {
+        descriptionArray.push(`Sorry, there is no description for this article. Please click 'Read More' to view the entire article`) // default text for when an article doesnt have a description
+      } else {
+        descriptionArray.push(data.articles[i].description) // push data description to descriptionArray
+      }
       urlToArticleArray.push(data.articles[i].url)
     }
+    console.log(descriptionArray);
+    console.log(urlToImageArray);
     // then take elements from array and append them to the modal
     $headlineImgs.css('background','url(' + urlToImageArray[currentHeadline] + ')') // set the headline img background to the first articles url
     $headlineImgs.css('background-position', 'center') // center the image
@@ -83,7 +93,7 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
     $headlineText.append(titleArray[currentHeadline]) // append first articles title to headline
 
     $headlineDes.append(descriptionArray[currentHeadline]) // append first articles description to headlines
-    $headline.append(`<a href='${urlToArticleArray[currentHeadline]}>Read More</a>`)
+    $headline.append(`<a href='${urlToArticleArray[currentHeadline]}>Read More</a>`) // add current article url to read more link on headline div
     $headlineText.show() // show the headline text
     $headlineDes.hide() // hide the description
     // then show the modal
