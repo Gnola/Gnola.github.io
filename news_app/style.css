@@ -32,10 +32,10 @@ h2 {
   justify-content: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  /* flex-direction: row; */
   align-items: center;
   align-content: space-between;
   margin: auto;
+  max-width: 80%;
 }
 
 /* .home-buttons {
