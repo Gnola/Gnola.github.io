@@ -43,6 +43,8 @@ AJAX:
 ## Unsolved Problems
 The  biggest problem I ran into was having to deal with a broken link from my API. I've continuously worked to fix the problem without finding the right solution for it. I believe that the more I learn about how exactly APIs work that I will be able to come back to this project and fix that problem.
 
+UPDATE: FIXED
+
 
 ## Pros and Cons
 Utilizing an API database to grab current news headlines and presenting them within my site. I originally wanted to use a different API but it gave me too much trouble so I pivoted to the news API instead. Due to this faulty API I don't believe I was able to be as creative with the functionality of the app as a whole and was a bit disappointed in the simplicity of my app. Although I wasn't able to implement as much creativity as I wanted to I was able to implement all the functionality I saw fit. Instead, I took the opportunity to focus more on the design aspect in order to get more practice in such aspects. I do believe though that the design of my app is impactful in helping such small functionality be more potent to the user. Other than that I believe that my code could be a bit DRYer but overall believe it to be pretty straightforward and easy for someone else to look at and understand what is going on
