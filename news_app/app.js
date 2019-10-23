@@ -26,7 +26,7 @@ let currentHeadline = 0; // parameters for carousel
 const lastHeadline = 4; // parameters for carousel
 
 let category = ''; // search for category depending on button clicked
-
+let click = 0;
 
 
 
@@ -153,11 +153,22 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
       urlToArticleArray = [];
     }) // END OF CLOSE BUTTON FUNCTION
 
+
     // WHEN YOU CLICK ON HEADLINE IMAGE //
     $headlineImgs.on('click', () => {
-      $headline.toggle(); // toggle the description on
-      $headlineDes.toggle(); // toggel the headline div off
+      if (click === 0 ) {
+        $headline.slideToggle( () => {
+          $headlineDes.slideToggle(800)
+        });
+        click++
+      } else if (click === 1) {
+        $headlineDes.slideToggle(800, () => {
+          $headline.slideToggle()
+        });
+        click--
+      }
     }) // END OF HEADLINE IMAGE BUTTON FUNCTION
+
 
     // WHEN YOU CLICK ON READ MORE LINK //
     $('a').on('click', () => {
@@ -285,3 +296,9 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
   // // OG SHOW MODAL
   // $headlineModal.show()
   // }) // OG END OF FIRST CLICK FUNCTION
+
+  // OG CLICK ON HEADLINE IMAGE //
+  // $headlineImgs.on('click', () => {
+  //   $headline.slideToggle(); // toggle the description on
+  //   $headlineDes.delay(1000).slideToggle()
+  // }) // END OF HEADLINE IMAGE BUTTON FUNCTION

@@ -131,6 +131,7 @@ button[name="home-button"]:hover {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    animation-direction: reverse;
     /* flex-wrap: wrap;
     justify-content: flex-end; */
   }
@@ -234,7 +235,7 @@ button[name="home-button"]:hover {
     max-height: 90%;
     margin: auto;
     margin-top: auto;
-    height: 200px;
+    height: 250px;
   }
   .headline-imgs {
     background-size: cover;
@@ -254,7 +255,7 @@ button[name="home-button"]:hover {
     font-size: 18px;
   }
   .headline-text {
-    font-size: 12px;
+    font-size: 14px;
   }
   a {
     font-size: 10px;
