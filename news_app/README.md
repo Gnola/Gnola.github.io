@@ -1,29 +1,17 @@
-# TOP NEWS APP(https://gnola.github.io/news_app/)
+# TOP NEWS
 [Top News App](https://gnola.github.io/news_app/)
+Tech Used: HTML / CSS / JavaScript / jQuery / [News API](https://newsapi.org/)
+Author: Gianni Nola
 
-## About
+## About the App
 This news app allows you to see the current top news headlines in almost real time. Depending on the category you choose, the app will utilize the API connected to the app and will deliver the top 5 headlines within that category.
 
-
-This app was build using:
-
-HTML
-
-CSS
-
-Javascript
-
-jquery
-
-API
-
-## API Source
-[News API](https://newsapi.org/)
-
-News API is great as a data source for news tickers and other applications where you want to show your users live headlines. We track headlines in 7 categories across over 50 countries, and at over a hundred top publications and blogs, in near real time.
-
 ## Navigating the app
-When the page loads you are presented with 7 options of articles to view based on specific categories. When a button is clicked, a modal of the top headline is shown. You are able to toggle the description of the article by clicking on the headline image. If you are interested in reading more from that specific article you can click on the read more link which will then take you to the article in a different tab. You can use the previous and next arrow buttons to move through the top 5 articles within that category. The close button at the top right corner of the modal will allow you to exit and return back to the main site to then choose another category.
+When the page loads you are presented with 7 options of articles to view based on specific categories (General, Business, Entertainment, Health, Science, Sports and Tech).
+
+![Homepage](imgs/Home.png "Homepage")
+
+When a button is clicked, a modal of the top headline is shown. You are able to toggle the description of the article by clicking on the headline image. If you are interested in reading more from that specific article you can click on the read more link which will then take you to the article in a different tab. You can use the previous and next arrow buttons to move through the top 5 articles within that category. The close button at the top right corner of the modal will allow you to exit and return back to the main site to then choose another category.
 
 ## Code Snippits
 Variables Utilized:
@@ -40,10 +28,6 @@ AJAX:
 
 ![alt text](https://github.com/Gnola/Gnola.github.io/blob/master/news_app/imgs/AJAX.png "AJAX")
 
-## Unsolved Problems
-The  biggest problem I ran into was having to deal with a broken link from my API. I've continuously worked to fix the problem without finding the right solution for it. I believe that the more I learn about how exactly APIs work that I will be able to come back to this project and fix that problem.
-
-UPDATE: FIXED
 
 
 ## Pros and Cons
