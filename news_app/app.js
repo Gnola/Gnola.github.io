@@ -62,7 +62,7 @@ $("button[name='home-button']").on('click', (event) => { // START OF FIRST CLICK
 
   // ONCE BUTTON IS CLICKED //
   const promise = $.ajax({ // AJAX
-    url: 'https://newsapi.org/v2/top-headlines?country=us&category=' + category + '&pageSize=5&apiKey=850ce7d10a3c44d6b8a3e6ac81eb0cb9'
+    url: 'https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&category=' + category + '&pageSize=5&apiKey=850ce7d10a3c44d6b8a3e6ac81eb0cb9'
   }).then( // START OF THEN //
   (data) => {
     // AND THE PAGE LOADS...
