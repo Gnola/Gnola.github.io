@@ -1,9 +1,7 @@
-# TOP NEWS
-[Top News App](https://gnola.github.io/news_app/)
+# [Top News](https://gnola.github.io/news_app/)
 
-Tech Used: HTML / CSS / JavaScript / jQuery / [News API](https://newsapi.org/)
-
-Author: Gianni Nola
+#### Tech Used:
+HTML / CSS / JavaScript / jQuery / [News API](https://newsapi.org/)
 
 ## About the App
 This single page news application allows users to view the current news headlines in real time. Depending on the category the user chooses, the app will utilize the API connected to the app and will deliver the top 5 headlines within that category.
@@ -16,7 +14,7 @@ When the page loads users are presented with 7 options of articles to view based
 ## Behind the Scenes
 Variables Utilized:
 
-![Variables Utilized](https://github.com/Gnola/Gnola.github.io/blob/master/news_app/imgs/Variables.png "Variables Utilized")
+![Variables Utilized](imgs/Variables.png "Variables Utilized")
 
 
 First Click Function and AJAX:
