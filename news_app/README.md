@@ -1,7 +1,16 @@
 # [Top News](https://gnola.github.io/news_app/)
 
-#### Tech Used:
-HTML / CSS / JavaScript / jQuery / [News API](https://newsapi.org/)
+## Tech Used:
+- HTML
+- CSS
+- JavaScript
+- jQuery
+
+#### Additional Resources
+- [News API](https://newsapi.org/)
+
+#### Deployed With: GitHub Pages
+
 
 ## About the App
 This single page news application allows users to view the current news headlines in real time. Depending on the category the user chooses, the app will utilize the API connected to the app and will deliver the top 5 headlines within that category.
@@ -28,3 +37,8 @@ Modal and Carousel:
 
 ## Recap
 I originally wanted to use a different API but it gave me too much trouble so I pivoted to the news API instead. Due to this faulty API I don't believe I was able to be as creative with the functionality of the app as a whole and was a bit disappointed in the simplicity of my app. Although I wasn't able to implement as much creativity as I wanted to I was able to implement all the functionality I saw fit. Instead, I took the opportunity to focus more on the design aspect in order to get more practice in such aspects. I do believe though that the design of my app is impactful in helping such small functionality be more potent to the user. Other than that I believe that my code could be a bit DRYer but overall believe it to be pretty straightforward and easy for someone else to look at and understand what is going on.
+
+---
+
+### Resources
+- [General Assembly Instructions](https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-Avocado-Toast/blob/master/projects/project_1/README.md)
